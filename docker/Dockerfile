@@ -8,6 +8,9 @@ RUN apt-get update \
         libpng-dev \
         libonig-dev \
         libxml2-dev \
+        $PHPIZE_DEPS \
+    && pecl install redis \
+    && docker-php-ext-enable redis \
     && docker-php-ext-install \
         pdo_mysql \
         mbstring \
@@ -15,6 +18,7 @@ RUN apt-get update \
         exif \
         pcntl \
         opcache \
+    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $PHPIZE_DEPS \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /var/www/html
