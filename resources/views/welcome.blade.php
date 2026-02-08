@@ -84,7 +84,7 @@
     <div class="wrap">
         <main class="card">
             <h1>Shorten a URL</h1>
-            <p>Phase 1: minimal UI. Paste a long URL to create a short one.</p>
+            <p>Paste a long URL to create a short one.</p>
 
             <form method="POST" action="{{ route('urls.store') }}" autocomplete="off">
                 @csrf
@@ -93,19 +93,19 @@
             </form>
 
             @if ($errors->any())
-                <div class="hint error">
+                <div class="hint" style="color: red;">
                     {{ $errors->first('long_url') }}
                 </div>
             @endif
 
             @if (session('short_url'))
-                <div class="hint">
+                <div class="hint" style="color: green;">
                     Short URL: <strong>{{ session('short_url') }}</strong>
                 </div>
             @endif
 
             <div class="hint">Test testttt.</div>
-            <div class="footer">{{ config('app.name', 'URL Shortener') }} · MVP</div>
+            <div class="footer">Iqhuan Hariirie</div>
         </main>
     </div>
 </body>
