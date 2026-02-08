@@ -92,6 +92,12 @@
                 <button type="submit">Shorten</button>
             </form>
 
+            @if (!empty($throttleMessage))
+                <div class="hint" style="color: red;">
+                    {{ $throttleMessage }}
+                </div>
+            @endif
+
             @if ($errors->any())
                 <div class="hint" style="color: red;">
                     {{ $errors->first('long_url') }}
